@@ -5,6 +5,8 @@ source 'https://rubygems.org'
    "https://github.com/#{repo_name}.git"
  end
 
+ gem 'devise'
+
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
  gem 'rails', '~> 5.1.2'
 
@@ -17,6 +19,8 @@ source 'https://rubygems.org'
    # Use sqlite3 as the development database for Active Record
    gem 'sqlite3'
    gem 'web-console', '~> 2.0'
+   gem 'rspec-rails', '~> 3.6'
+   gem 'listen', '~> 3.0.5'
  end
 
  # Use Puma as the app server
@@ -37,6 +41,6 @@ source 'https://rubygems.org'
 
  gem 'bootstrap-sass'
 
- group :development do
+ group :test do
    gem 'listen', '~> 3.0.5'
  end
