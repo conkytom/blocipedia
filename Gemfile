@@ -21,6 +21,7 @@ source 'https://rubygems.org'
    gem 'web-console', '~> 2.0'
    gem 'rspec-rails', '~> 3.6'
    gem 'listen', '~> 3.0.5'
+   gem "factory_bot_rails", "~> 4.0"
  end
 
  # Use Puma as the app server
@@ -40,6 +41,8 @@ source 'https://rubygems.org'
  gem 'thor', '0.20.0'
 
  gem 'bootstrap-sass'
+
+
 
  group :test do
    gem 'listen', '~> 3.0.5'

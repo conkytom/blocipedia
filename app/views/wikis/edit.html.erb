@@ -1,0 +1,15 @@
+<h1>Edit Wiki</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>Wiki Editting Guidelines:</p>
+        <ul>
+            <li>Please read the FAQ.</li>
+            <li>Please read the wiki in its entirety before editting it.</li>
+            <li>Please actually know something bout the subject matter, and site sources when able.</li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <%= render partial: 'form', locals: { wiki: @wiki } %>
+    </div>
+</div>
