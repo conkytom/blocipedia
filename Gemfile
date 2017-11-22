@@ -44,6 +44,8 @@ source 'https://rubygems.org'
 
  gem 'pundit'
 
+ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 
 
  group :test do
