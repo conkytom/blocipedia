@@ -42,6 +42,8 @@ source 'https://rubygems.org'
 
  gem 'bootstrap-sass'
 
+ gem 'pundit'
+
 
 
  group :test do
