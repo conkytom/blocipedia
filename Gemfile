@@ -4,7 +4,7 @@ source 'https://rubygems.org'
    repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
    "https://github.com/#{repo_name}.git"
  end
-
+#for managing validation
  gem 'devise'
 
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -41,12 +41,16 @@ source 'https://rubygems.org'
  gem 'thor', '0.20.0'
 
  gem 'bootstrap-sass'
-
+#for managing authorization
  gem 'pundit'
-
+#For seeding data
  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
+#For payment
+ gem 'stripe'
 
+#for keeping enviroment variables safe
+ gem 'figaro'
 
  group :test do
    gem 'listen', '~> 3.0.5'
