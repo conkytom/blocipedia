@@ -1,3 +1,8 @@
-SENDGRID_USERNAME: 
+#for SendGrid email service
+SENDGRID_USERNAME:
 
 SENDGRID_PASSWORD:
+
+#for Stripe payment service
+STRIPE_PUBLISHABLE_KEY:
+STRIPE_SECRET_KEY:

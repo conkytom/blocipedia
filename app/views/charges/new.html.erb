@@ -1,0 +1,31 @@
+<%= form_tag charges_path do %>
+<h2>Membership Changes</h2>
+
+    <!-- Standard membership to upgrade to Premium -->
+    <% if current_user.role == 'standard' %>
+        <h3>You currently have a <%= current_user.role %> membership.</h3>
+        <p>You can upgrade to a premium account for the ability to create private wikis.</p>
+        <h4>Upgrade your account for $15.00/month here:</h4>
+        <script class='stripe-button'
+            src="https://checkout.stripe.com/checkout.js"
+            data-key=        "<%= @stripe_btn_data[:key] %>"
+            data-amount=     "<%= @stripe_btn_data[:amount] %>"
+            data-description="<%= @stripe_btn_data[:description] %>"
+            >
+        </script>
+    <% end %>
+
+    <!-- Premium membership to downgrade to Standard -->
+    <% if current_user.role == 'premium' %>
+        <h3>You currently have a <%= current_user.role %> membership.</h3>
+        <p>You can downgrade your account your account back to standard.</p>
+        <h4>Downgrade with a refund of $15.00 here:</h4>
+        <%= link_to "Downgrade", downgrade_user_path(current_user), class: 'btn btn-danger', data: { confirm: 'Are you sure you want downgrade your account?'} %>
+    <% end %>
+
+    <!-- Admin -->
+    <% if current_user.role == 'admin' %>
+        <h3>You currently an <%= current_user.role %>.</h3>
+        <p>Get in touch with the site manager if you no longer want to be an admin</p>
+    <% end %>
+<% end %>
