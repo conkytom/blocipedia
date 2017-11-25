@@ -8,11 +8,14 @@
 require 'faker'
 pw = Faker::Internet.password
 
+roles= ['standard', 'premium']
+
 15.times do
     user = User.new(
         email: Faker::Internet.email,
         password: 'thomas',
-        password_confirmation: 'thomas'
+        password_confirmation: 'thomas',
+        role: roles.sample
     )
     user.skip_confirmation!
     user.save!
@@ -23,7 +26,9 @@ users = User.all
     wiki = Wiki.create!(
         user_id: rand(1..14),
         title: Faker::Beer.name,
-        body: Faker::Lorem.paragraphs
+        body: Faker::Lorem.paragraphs,
+        private: rand(0..1)
+
     )
 end
 wikis = Wiki.all
