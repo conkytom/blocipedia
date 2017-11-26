@@ -18,7 +18,9 @@
     <%= form_group_tag(wiki.errors[:body]) do %>
         <%= f.label :body %>
         <%= f.text_area :body, rows: 10, class: 'form-control', placeholder: "Enter wiki info" %>
+        <small>Blocipedia supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a></small>
     <% end %>
+
     <% if user_see_private? %>
         <%= form_group_tag(wiki.errors[:title]) do %>
             <%= f.label :private, class: 'checkbox' do %>

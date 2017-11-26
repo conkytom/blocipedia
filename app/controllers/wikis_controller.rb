@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class WikisController < ApplicationController
 
 
