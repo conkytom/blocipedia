@@ -7,8 +7,4 @@ class Wiki < ApplicationRecord
 
   default_scope { order('created_at DESC') }
 
-  scope :visible_to, -> (user) do
-      return all if user_see_private?
-      where(private: [false, nil])
-  end
 end
