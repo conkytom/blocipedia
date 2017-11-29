@@ -52,6 +52,9 @@ source 'https://rubygems.org'
 #for keeping enviroment variables safe
  gem 'figaro'
 
+ #To add Markdown
+ gem 'redcarpet'
+
  group :test do
    gem 'listen', '~> 3.0.5'
  end
