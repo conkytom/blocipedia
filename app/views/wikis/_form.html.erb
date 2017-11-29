@@ -21,12 +21,22 @@
         <small>Blocipedia supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a></small>
     <% end %>
 
-    <% if user_see_private? %>
+    <% if user_see_private? || current_user.admin? %>
         <%= form_group_tag(wiki.errors[:title]) do %>
             <%= f.label :private, class: 'checkbox' do %>
                 <%= f.check_box :private %> Private wiki
             <% end %>
         <% end %>
+        <h4>Add Collaborators</h4>
+        <table class="table">
+            <% @wiki.collaborators.each do |collaborator| %>
+            <tr>
+                <td><%= collaborator.user.email %></td>
+                <td> | <%= link_to "Remove", collaborator_path(collaborator.id), method: :delete%></td>
+            </tr>
+            <% end %>
+        </table>
+        <%= link_to "Add Collaborator", new_collaborator_path(wiki_id: @wiki.id), class: 'btn btn-success' %>
     <% end %>
     <div class="form-group">
         <%= f.submit "Save Wiki", class: 'btn btn-success' %>

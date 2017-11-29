@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :charges
 
-
+  resources :collaborators, only: [:create, :edit, :new, :destroy]
 
   devise_for :users
 
