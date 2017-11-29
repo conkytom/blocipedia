@@ -20,7 +20,7 @@
         <h3>You currently have a <%= current_user.role %> membership.</h3>
         <p>You can downgrade your account your account back to standard.</p>
         <h4>Downgrade with a refund of $15.00 here:</h4>
-        <%= link_to "Downgrade", downgrade_user_path(current_user), class: 'btn btn-danger', data: { confirm: 'Are you sure you want downgrade your account?'} %>
+        <%= link_to "Downgrade", downgrade_user_path(current_user), class: 'btn btn-danger', data: { confirm: 'Are you sure you want downgrade your account? All your private wikis will be made public.'} %>
     <% end %>
 
     <!-- Admin -->

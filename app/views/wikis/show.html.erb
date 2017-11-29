@@ -1,4 +1,8 @@
-<h1><%= @wiki.title %></h1>
+<h1><%= @wiki.title %>
+    <% if @wiki.private? %>
+      <small>Private Wiki</small>
+    <% end %>
+</h1>
 
 <% if policy(@wiki).update? %>
     <%= link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'btn btn-success' %>

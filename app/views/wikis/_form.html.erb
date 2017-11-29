@@ -10,6 +10,7 @@
        </ul>
      </div>
     <% end %>
+
     <%= form_group_tag(wiki.errors[:title]) do %>
         <%= f.label :title %>
         <%= f.text_field :title, class: 'form-control', placeholder: "Subject/Title of Wiki" %>
@@ -18,8 +19,12 @@
         <%= f.label :body %>
         <%= f.text_area :body, rows: 10, class: 'form-control', placeholder: "Enter wiki info" %>
     <% end %>
-        <%= f.label :private, class: 'checkbox' do %>
-            <%= f.check_box :private %> Private wiki
+    <% if user_see_private? %>
+        <%= form_group_tag(wiki.errors[:title]) do %>
+            <%= f.label :private, class: 'checkbox' do %>
+                <%= f.check_box :private %> Private wiki
+            <% end %>
+        <% end %>
     <% end %>
     <div class="form-group">
         <%= f.submit "Save Wiki", class: 'btn btn-success' %>

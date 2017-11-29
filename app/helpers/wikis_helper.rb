@@ -1,12 +1,6 @@
 module WikisHelper
-=begin
-    def user_is_authorized_to_edit?
-        current_user &&
-             (current_user == @wiki.user)
-    #        || current_user.admin?
-    #        || current_user.collaborator?
-            #|| (@wiki.user == nil)
 
+    def user_see_private?
+        current_user.premium? || current_user.admin?
     end
-=end
 end
