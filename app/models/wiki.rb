@@ -1,5 +1,9 @@
 class Wiki < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
+
+
+  has_many :collaborators, dependent: :destroy
+  has_many :users, through: :collaborators
 
   validates :title, length: {minimum: 1 }, presence: true
   validates :body,  length: { minimum: 20}, presence: true
@@ -7,8 +11,4 @@ class Wiki < ApplicationRecord
 
   default_scope { order('created_at DESC') }
 
-  scope :visible_to, -> (user) do
-      return all if user_see_private?
-      where(private: [false, nil])
-  end
 end

@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
+
+    has_many :wikis, dependent: :destroy
+    has_many :collaborators, dependent: :destroy
+
     enum role: [:standard, :premium, :admin]
     after_initialize :set_default_role, :if => :new_record?
 

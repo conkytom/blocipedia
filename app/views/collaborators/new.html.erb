@@ -1,0 +1,7 @@
+<h2>Add Collaborators</h2>
+<p>Who would you like to be able to edit</p>
+<%= form_for :collaborators, url: collaborators_path do |f| %>
+       <%= f.hidden_field :wiki_id, :value => params[:wiki_id] %>
+       <%= f.select :user_id, options_from_collection_for_select(@users, 'id', 'email') %>
+       <%= f.submit 'Save' %>
+<% end %>

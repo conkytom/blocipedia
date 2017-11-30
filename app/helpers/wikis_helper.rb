@@ -1,6 +1,10 @@
 module WikisHelper
 
     def user_see_private?
-        current_user.premium? || current_user.admin?
+        if edit_wiki_url
+            current_user.premium?
+        elsif new_wiki_url
+            current_user.email == @wiki.user.email #|| current_user.collaborator
+        end
     end
 end
